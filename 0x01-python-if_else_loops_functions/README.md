@@ -1,2 +1,1 @@
-this is not to keep the directory non empty 
-:wq
+This directory contains all my codes on if/else, loops, and functions Python

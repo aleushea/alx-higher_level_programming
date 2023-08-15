@@ -1,10 +1,8 @@
 #!/usr/bin/python3
+# 1-element_at.py
 
-if __name__ == "__main__":
-    from calculator_1 import add, sub, mul, div
-    a = 10
-    b = 5
-    print("{:d} + {:d} = {:d}".format(a, b, add(a, b)))
-    print("{:d} - {:d} = {:d}".format(a, b, sub(a, b)))
-    print("{:d} * {:d} = {:d}".format(a, b, mul(a, b)))
-    print("{:d} / {:d} = {:d}".format(a, b, div(a, b)))
+def element_at(my_list, idx):
+    """Retrive an element from a list."""
+    if idx < 0 or idx > (len(my_list) - 1):
+        return None
+    return my_list[idx]

@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 def uppercase(str):
     """this script print words in uppercase."""
     for c in str:

@@ -1,8 +1,9 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+
 def uppercase(str):
-    """this script print words in uppercase."""
-    for c in str:
-        if 97 <= ord(c) <= 122:
-            c = chr(ord(c) - 32)
-        print("{}".format(c), end="")
+    """This script print a string in uppercase."""
+    for each_character in str:
+        if 97 <= ord(each_character) <= 122:
+            each_character = chr(ord(each_character) - 32)
+        print("{}".format(each_character), end="")
     print("")

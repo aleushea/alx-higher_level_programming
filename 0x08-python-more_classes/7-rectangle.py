@@ -6,12 +6,22 @@ Defines a class Rectangle
 
 class Rectangle:
     """Representation of a rectangle"""
+
+    number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """initializing the rectangle by
         setting the objet with width and height
         """
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
+
+    def __del__(self):
+        """prints a string when an instance has been deleted"""
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
 
     @property
     def width(self):
@@ -55,7 +65,7 @@ class Rectangle:
         """returns printable string representation of the rectangle"""
         string = ""
         if self.__width != 0 and self.__height != 0:
-            string += "\n".join("#" * self.__width
+            string += "\n".join(str(self.print_symbol) * self.__width
                                 for j in range(self.__height))
         return string
 

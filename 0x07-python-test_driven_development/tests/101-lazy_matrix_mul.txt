@@ -1,0 +1,134 @@
+# 101-lazy_lazy_matrix_mul.txt
+# Run: python3 -m doctest -v ./tests/101-lazy_lazy_matrix_mul.txt
+
+Import function from the module:
+
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+Multiply two normal matrices
+
+    >>> lazy_matrix_mul([[12, 9], [1, 45]], [[87, 34], [45, 23]])
+    array([[1449,  615],
+     	   [2112, 1069]])
+
+Multiply normal matrices
+
+    >>> lazy_matrix_mul([[7, 6]], [[5, 4], [3, 2]])
+    array([[53, 40]])
+
+Multiply two 3D matrices
+
+    >>> list1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    >>> list2 = [[18, -17, 16], [15, -14, 13], [12, -11, 10]]
+    >>> lazy_matrix_mul(list1, list2)
+    array([[  84,  -78,   72],
+           [ 219, -204,  189],
+           [ 354, -330,  306]])
+
+Multiply normal matrices
+
+    >>> lazy_matrix_mul([[13, 25, 17]], [[30], [15], [48]])
+    array([[1581]])
+
+Pass None
+
+    >>> lazy_matrix_mul(None, None)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: Object arrays are not currently supported
+
+Pass None as matrix attribute
+
+    >>> lazy_matrix_mul([[40, 4]], None)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: Object arrays are not currently supported
+
+Pass tuple as matrix attribute
+
+    >>> lazy_matrix_mul((1, 2, 3), [[4.5], [6.7], [8.9]])
+    array([44.6])
+
+Pass string as matrix attribute
+
+    >>> lazy_matrix_mul([[23, 43], [64, 74]], "Hannibal")
+    Traceback (most recent call last):
+    	      ...
+    ValueError: Scalar operands are not allowed, use '*' instead
+
+Pass list of tuples
+
+   >>> lazy_matrix_mul([(1, 5, 10)], [(1), (5)])
+   Traceback (most recent call last):
+   	     ...
+   ValueError: shapes (1,3) and (2,) not aligned: 3 (dim 1) != 2 (dim 0)
+
+Pass list of strings
+
+   >>> lazy_matrix_mul([[]], ["Mejbri"])
+   Traceback (most recent call last):
+   	     ...
+   ValueError: shapes (1,0) and (1,) not aligned: 0 (dim 1) != 1 (dim 0)
+
+Pass empty matrix
+
+    >>> lazy_matrix_mul([], [[1]])
+    Traceback (most recent call last):
+    	      ...
+    ValueError: shapes (0,) and (1,1) not aligned: 0 (dim 0) != 1 (dim 0)
+
+Pass empty matrix attribute
+
+    >>> lazy_matrix_mul([[1, 2]], [[]])
+    Traceback (most recent call last):
+    	      ...
+    ValueError: shapes (1,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
+
+Pass matrix with a list of strings
+
+    >>> lazy_matrix_mul([[1, '1', 1], ['2', 2, '2']], [[3], [3]])
+    Traceback (most recent call last):
+    	      ...
+    ValueError: shapes (2,3) and (2,1) not aligned: 3 (dim 1) != 2 (dim 0)
+
+Pass a string as matrix attribute
+
+    >>> lazy_matrix_mul([[8, 9, 10], [11, 12, 13]], [[14], ['15'], [316]])
+    Traceback (most recent call last):
+    	      ...
+    TypeError: invalid data type for einsum
+
+Pass empty list as part of matrix attributes
+
+    >>> lazy_matrix_mul([[2, 1, 12], [], [4, 1, 14]], [[2], [3], [8]])
+    Traceback (most recent call last):
+    	      ...
+    ValueError: setting an array element with a sequence.
+
+Pass matrix with unmatched sizes
+
+    >>> lazy_matrix_mul([[2, 4, 6], [3, 6, 9]], [[1], [2, 3]])
+    Traceback (most recent call last):
+    	      ...
+    ValueError: setting an array element with a sequence.
+
+Pass matrices that cannot be multiplied
+
+    >>> lazy_matrix_mul([[5, 2, 3], [7, 13, 2], [1, 0, 3]], [[2, 3], [6, 9]])
+    Traceback (most recent call last):
+    	      ...
+    ValueError: shapes (3,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
+
+Pass only one argument to be multiplied
+
+    >>> lazy_matrix_mul([[31, 32]])
+    Traceback (most recent call last):
+    	            ...
+    TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+Pass nothing
+
+    >>> lazy_matrix_mul()
+    Traceback (most recent call last):
+    	            ...
+    TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'

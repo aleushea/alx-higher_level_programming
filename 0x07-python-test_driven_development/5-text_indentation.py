@@ -22,4 +22,3 @@ def text_indentation(text):
             txt = elem + char if txt is "" else txt + "\n\n" + elem + char
 
     print(txt[:-3], end="")
-

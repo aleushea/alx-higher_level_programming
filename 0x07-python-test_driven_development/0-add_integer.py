@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""the purpose of this module is addition of two integers/floating point mumbers"""
+"""the purpose of this module is addition of two integers/floating numbers"""
 
 
 def add_integer(a, b=98):
